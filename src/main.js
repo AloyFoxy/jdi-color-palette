@@ -9,6 +9,13 @@ const buttonCopy = document.getElementById('buttonCopy')
 
 let colorsArray = [];
 
+colorsContainer.addEventListener('click', (e) => {
+  if(e.target && e.target.matches('button.copyButton')) {
+    navigator.clipboard.writeText(e.target.dataset.color)
+    console.log(e.target.dataset.color)
+  }
+})
+
 function renderColorCard(colorObj) {
   
   const card = document.createElement('div')
@@ -27,8 +34,8 @@ function renderColorCard(colorObj) {
   colorCode.textContent = colorObj.code
 
   const buttonCopy = document.createElement('button')
-  buttonCopy.classList.add('mt-2', 'bg-blue-100', 'hover:bg-blue-200', 'text-blue-600', 'px-2', 'py-1', 'rounded', 'text-sm', 'font-semibold')
-  buttonCopy.setAttribute('id', 'buttonCopy')
+  buttonCopy.classList.add('copyButton','mt-2', 'bg-blue-100', 'hover:bg-blue-200', 'text-blue-600', 'px-2', 'py-1', 'rounded', 'text-sm', 'font-semibold')
+  buttonCopy.setAttribute('data-color', colorObj.code)
   buttonCopy.textContent = 'Copy'
 
   card.appendChild(colorBlock)
@@ -37,17 +44,6 @@ function renderColorCard(colorObj) {
   card.appendChild(buttonCopy) 
 
   colorsContainer.appendChild(card)
-
-  // colorsContainer.innerHTML = `
-  //   <div class="flex flex-col items-center justify-center p-4 rounded-md border">
-  //     <div class="w-16 h-16 rounded-md" style="background-color: ${colorObj.code};"></div>
-  //       <p class="mt-2 text-sm font-medium">${colorObj.name}</p>
-  //       <p class="text-xs text-gray-500">${colorObj.code}</p>
-  //       <button class="mt-2 bg-blue-100 hover:bg-blue-200 text-blue-600 px-2 py-1 rounded text-sm font-semibold">
-  //           Copiar
-  //       </button>
-  //   </div>
-  // `
 }
 
 
@@ -99,3 +95,4 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(colorsArray);
   rederAllColors()
 })
+
