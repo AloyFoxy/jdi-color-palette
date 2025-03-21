@@ -28,7 +28,7 @@ colorsContainer.addEventListener('click', (e) => {
 })
 
 function showModal(e) {
-  console.log('Editar este color ' + e.target.dataset.id)
+  // !console.log('Editar este color ' + e.target.dataset.id)
     const modalWrapper = document.getElementById('modalWrapper')
     // Crear el modal principal
     const modal = document.createElement('div')
@@ -66,6 +66,7 @@ function showModal(e) {
     // Texto del modal
     const textContainer = document.createElement('div')
     textContainer.classList.add('mt-3', 'text-center', 'sm:mt-0', 'sm:ml-4', 'sm:text-left')
+    textContainer.setAttribute('id', 'textContainer')
 
     const modalTitle = document.createElement('h3')
     modalTitle.classList.add('text-base', 'font-semibold', 'text-gray-900')
@@ -84,9 +85,7 @@ function showModal(e) {
     inputEdit.setAttribute('placeholder', 'Edit Color')
     inputEdit.setAttribute('type', 'text')
     inputEdit.setAttribute('id', 'modal-input')
-
-
-
+    
     // Botones del modal
     const buttonContainer = document.createElement('div')
     buttonContainer.classList.add('bg-gray-50', 'px-4', 'py-3', 'sm:flex', 'sm:flex-row-reverse', 'sm:px-6')
@@ -122,30 +121,59 @@ function showModal(e) {
     modal.appendChild(modalContainer)
     modalWrapper.appendChild(modal)
 
+    // Usar requestAnimationFrame para asegurar que el DOM está listo
+    requestAnimationFrame(() => {
+      inputEdit.focus()
+    })
+
     buttonContainer.addEventListener('click', (event) => {
       if (event.target && event.target.matches('button.modal-buttonCancel')) {
           console.log('Cerrar Modal');
-          modal.classList.add('hidden')        
+          closeModal()
       }    
       
       if (event.target && event.target.matches('button.modal-buttonEdit')) {
-        console.log('Editar este color ' + e.target.dataset.id);
-        editColor()
-    }    
+        const inputEdit = document.getElementById('modal-input').value
+        editColor(e, inputEdit)
+      }    
     })
 }
 
-function editColor() {
-  console.log('la funcion funciona');
-  
+function closeModal() {
+  const modal = document.getElementById('modal')
+  if (modal) {
+    modal.remove()
+  }
 }
 
-
-
-
-
-
-
+function editColor(e, inputEdit) {
+  console.log('la funcion funciona ' + e.target.dataset.id);
+  
+  colorsArray.map(color => {
+    if (color.id == e.target.dataset.id) {        
+      if (inputEdit) {
+        if(!inputEdit.startsWith('#')){
+          inputEdit = `#${inputEdit}`
+        } else{
+          inputEdit = `${inputEdit}`
+        }      
+        color.code = inputEdit      
+        console.log(colorsArray);
+  
+        const colorsJSON = JSON.stringify(colorsArray)
+        localStorage.setItem('colors', colorsJSON)
+        closeModal()
+        renderAllColors()  
+      } else {
+          const warningText = document.createElement('p')
+          warningText.classList.add('text-sm', 'text-red-500', 'font-semibold')
+          warningText.textContent = 'Por favor, ingresa un código de color válido' 
+          const textContainer = document.getElementById('textContainer')
+          textContainer.appendChild(warningText)
+      }
+    }
+  })
+}
 
 function renderColorCard(colorObj) {
   
@@ -193,15 +221,12 @@ function renderColorCard(colorObj) {
 
   colorsContainer.appendChild(card)
 }
-
-
-function rederAllColors(){
-  // colorsContainer.innerHTML = '';
+function renderAllColors(){
+  colorsContainer.innerHTML = '';
   colorsArray.forEach(element => {
     renderColorCard(element)
   })
 }
-
 colorForm.addEventListener('submit', (event) => {
   event.preventDefault()
   let name = inputName.value
@@ -241,6 +266,6 @@ document.addEventListener('DOMContentLoaded', () => {
     colorsArray = JSON.parse(storedColors)
   }
   console.log(colorsArray);
-  rederAllColors()
+  renderAllColors()
 })
 
