@@ -9,6 +9,34 @@ const buttonCopy = document.getElementById('buttonCopy')
 
 let colorsArray = [];
 
+// DarkMode
+const darkModeToggle = document.getElementById('toggle-darkmode');
+const htmlElement = document.documentElement;
+
+// Función para establecer el tema
+const setTheme = (isDark) => {
+  if (isDark) {
+    htmlElement.classList.add('dark');
+    localStorage.theme = 'dark';
+  } else {
+    htmlElement.classList.remove('dark');
+    localStorage.theme = 'light';
+  }
+};
+
+// Inicializar tema basado en localStorage o preferencia del sistema
+const isDarkMode = localStorage.theme === 'dark' || 
+  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+setTheme(isDarkMode);
+
+// Toggle del tema al hacer click
+darkModeToggle.addEventListener('click', () => {
+  const isDark = htmlElement.classList.contains('dark');
+  setTheme(!isDark);
+});
+
+
+
 colorsContainer.addEventListener('click', (e) => {
   if(e.target && e.target.matches('button.buttonCopy')) {
     navigator.clipboard.writeText(e.target.dataset.color)
@@ -178,45 +206,52 @@ function editColor(e, inputEdit) {
 function renderColorCard(colorObj) {
   
   const card = document.createElement('div')
-  card.classList.add('flex', 'flex-col', 'border-1', 'border-gray-400', 'items-center', 'justify-center', 'p-4', 'rounded-md', 'border')
+  card.classList.add('flex', 'flex-col', 'border-1', 'border-gray-300', 'dark:border-gray-800', 'items-center', 'justify-center', 'p-4', 'rounded-md', 'border')
 
   const colorBlock = document.createElement('div')
-  colorBlock.classList.add('w-16', 'h-16', 'border-1', 'border-gray-300', 'rounded-md')
+  colorBlock.classList.add('w-16', 'h-16', 'border-1', 'border-gray-300', 'dark:border-gray-800',  'rounded-md')
   colorBlock.style.backgroundColor = colorObj.code
 
+  const colorInfoContainer = document.createElement('div')
+  colorInfoContainer.classList.add('flex', 'flex-row', 'items-center', 'mt-2', 'gap-4')
+
   const colorNameElem = document.createElement('p')
-  colorNameElem.classList.add('mt-2', 'text-sm', 'font-medium')
+  colorNameElem.classList.add('text-lg', 'font-semibold', 'text-gray-500','dark:text-gray-300')
   colorNameElem.textContent = colorObj.name
 
-  const colorCode = document.createElement('p')
-  colorCode.classList.add('text-xs', 'text-gray-500')
-  colorCode.textContent = colorObj.code
+  const colorCodeElem = document.createElement('p')
+  colorCodeElem.classList.add('text-lg', 'text-gray-500')
+  colorCodeElem.textContent = colorObj.code
 
   const buttonsContainer = document.createElement('div')
   buttonsContainer.classList.add('flex', 'flex-row', 'gap-4')
 
   const buttonCopy = document.createElement('button')
-  buttonCopy.classList.add('buttonCopy','mt-2', 'bg-white', 'hover:bg-gray-100', 'text-gray-900', 'px-2', 'py-1', 'border-1', 'border-gray-300', 'rounded', 'text-sm', 'font-semibold', 'transition')
+  buttonCopy.classList.add('buttonCopy', 'mt-2', 'text-gray-900', 'hover:text-white', 'border', 'border-gray-800', 'hover:bg-gray-900', 'focus:ring-4', 'focus:outline-none', 'focus:ring-gray-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'dark:border-gray-600', 'dark:text-gray-400', 'dark:hover:text-white', 'dark:hover:bg-gray-600', 'dark:focus:ring-gray-800', 'transition')
   buttonCopy.setAttribute('data-color', colorObj.code)
+  buttonCopy.style.cursor = 'pointer'
   buttonCopy.textContent = 'Copy'
 
   const buttonEdit = document.createElement('button')
-  buttonEdit.classList.add('buttonEdit', 'mt-2', 'bg-white', 'hover:bg-orange-500', 'hover:text-white', 'text-gray-900', 'px-2', 'py-1', 'border-1', 'border-gray-300', 'rounded', 'text-sm', 'font-semibold', 'transition')
+  buttonEdit.classList.add('buttonEdit','mt-2', 'text-orange-400', 'hover:text-white', 'border', 'border-orange-400', 'hover:bg-orange-500', 'focus:ring-4', 'focus:outline-none', 'focus:ring-orange-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'dark:border-orange-300', 'dark:text-orange-300', 'dark:hover:text-white', 'dark:hover:bg-orange-400', 'dark:focus:ring-orange-900')
   buttonEdit.setAttribute('data-id', colorObj.id)
+  buttonEdit.style.cursor = 'pointer'
   buttonEdit.textContent = 'Edit'
 
   const buttonDelete = document.createElement('button')
-  buttonDelete.classList.add('buttonDelete', 'mt-2', 'bg-white', 'hover:bg-red-500', 'hover:text-white', 'text-gray-900', 'px-2', 'py-1', 'border-1', 'border-gray-300', 'rounded', 'text-sm', 'font-semibold', 'transition')
+  buttonDelete.classList.add('buttonDelete', 'mt-2', 'text-red-700', 'hover:text-white', 'border', 'border-red-700', 'hover:bg-red-800', 'focus:ring-4', 'focus:outline-none', 'focus:ring-red-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'dark:border-red-500', 'dark:text-red-500', 'dark:hover:text-white', 'dark:hover:bg-red-600', 'dark:focus:ring-red-900')
   buttonDelete.setAttribute('data-id', colorObj.id)
+  buttonDelete.style.cursor = 'pointer'
   buttonDelete.textContent = 'Delete'
 
   card.appendChild(colorBlock)
-  card.appendChild(colorNameElem)
-  card.appendChild(colorCode)
+  colorInfoContainer.appendChild(colorNameElem)
+  colorInfoContainer.appendChild(colorCodeElem)
+  card.appendChild(colorInfoContainer)
   card.appendChild(buttonsContainer)
   buttonsContainer.appendChild(buttonEdit)
   buttonsContainer.appendChild(buttonCopy)
-  buttonsContainer.appendChild(buttonDelete) 
+  buttonsContainer.appendChild(buttonDelete)
 
 
   colorsContainer.appendChild(card)

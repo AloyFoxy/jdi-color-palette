@@ -10,17 +10,21 @@
   />
   <link rel="stylesheet" href="./src/style.css">
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
+<body class="bg-neutral-100 dark:bg-neutral-950/95 min-h-screen flex flex-col">
 
   <!-- HEADER/NAV -->
-  <nav class="bg-white shadow-md">
+  <nav class="bg-white shadow-md dark:bg-neutral-950/70 transition-discrete">
     <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <h1 class="text-xl font-bold text-gray-800">Color Palette App</h1>
-      <button
-        id="toggle-darkmode"
-        class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-2 rounded-md text-sm font-semibold"
-      >
-        Toggle Dark Mode
+      <div class="text-xl font-medium text-neutral-800 dark:text-white">
+        <span class="font-black text-2xl bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">JDI</span>
+        <span class="ml-1">Color Palette App</span>
+      </div>
+      <button type="button" id="toggle-darkmode" class="block font-medium text-neutral-800 rounded-md hover:bg-neutral-200 focus:outline-hidden dark:text-yellow-500 dark:hover:bg-neutral-800 cursor-pointer transition-discrete">
+        <span class="group inline-flex shrink-0 justify-center items-center size-12">
+          <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </span>
       </button>
     </div>
   </nav>
@@ -31,44 +35,44 @@
     <div class="flex flex-col md:flex-row md:space-x-4 space-y-6 md:space-y-0">
 
       <!-- Sección para agregar colores a la paleta -->
-      <section class="bg-white shadow-md p-6 rounded-md w-full md:w-1/3">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">Agregar Color</h2>
+      <section class="bg-white dark:bg-neutral-950/70 shadow-md p-6 rounded-md w-full md:w-1/3">
+        <h2 class="text-lg font-semibold text-neutral-800 dark:text-neutral-300 mb-4">Add Color</h2>
         <form id="add-color-form" class="space-y-4">
           <div>
-            <label for="color-name" class="block mb-1 text-sm font-medium text-gray-700"
-              >Nombre del Color</label
+            <label for="color-name" class="block mb-1 text-sm font-medium text-neutral-700 dark:text-neutral-300"
+              >Color Name</label
             >
             <input
               type="text"
               id="color-name"
-              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Ejemplo: Rojo Vibrante"
+              class="w-full border dark:text-neutral-300 border-neutral-300 dark:border-neutral-800 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-neutral-500"
+              placeholder="Example: Fox Orange"
             />
           </div>
           <div>
-            <label for="color-code" class="block mb-1 text-sm font-medium text-gray-700"
-              >Código Hex</label
+            <label for="color-code" class="block mb-1 text-sm font-medium text-neutral-700 dark:text-neutral-300"
+              >Hex Code</label
             >
             <input
               type="text"
               id="color-code"
-              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full border dark:text-neutral-300 border-neutral-300 dark:border-neutral-800 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-neutral-500"
               placeholder="#FF0000"
             />
           </div>
           <button
             type="submit"
             id="submit"
-            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md"
+            class="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-2 px-4 rounded-md transition-discrete cursor-pointer"
           >
-            Agregar a la Paleta
+            Add to Palette
           </button>
         </form>
       </section>
       <!-- Sección para la lista de colores generados -->
-      <section class="bg-white shadow-md p-6 rounded-md w-full md:w-2/3">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">Paleta de Colores</h2>
-        <div id="colors-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <section class="bg-white dark:bg-neutral-950/70 shadow-md p-6 rounded-md w-full md:w-2/3">
+        <h2 class="text-lg font-semibold text-neutral-800 dark:text-neutral-300 mb-4">Colors Palette</h2>
+        <div id="colors-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
         <!-- Render Card with colors--> 
         </div>
       </section>
@@ -76,9 +80,11 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-white mt-auto">
-    <div class="max-w-7xl mx-auto px-4 py-4 text-center">
-      <p class="text-sm text-gray-500">© 2025 Tu Nombre - Color Palette App</p>
+  <footer class="bg-white dark:bg-neutral-950/70 mt-auto py-2">
+    <div class="flex flex-row items-center justify-center gap-4 text-center">
+      <p class="text-sm text-neutral-500">Made with 💜 by AloyFoxy</p>
+      <p class="text-sm text-neutral-500">|</p>
+      <p class="text-sm text-neutral-500"> Color Palette App © 2025</p>
     </div>
   </footer>
   
