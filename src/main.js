@@ -413,7 +413,7 @@ colorForm.addEventListener('submit', (event) => {
   const trimmedCode = code.trim();
 
   if (!hexRegex.test(trimmedCode)) {
-    console.log("Código HEX inválido. Por favor ingresa un valor como #FFF o #FFFFFF.");
+    alert("Código HEX inválido. Por favor ingresa un valor como #FFF o #FFFFFF.");
     return;
   }
 
