@@ -80,7 +80,7 @@ function showModalEdit(e) {
 
     // Crear el overlay del modal
     const modalOverlay = document.createElement('div')
-    modalOverlay.classList.add('fixed', 'inset-0', 'bg-gray-500/75', 'transition-opacity')
+    modalOverlay.classList.add('fixed', 'inset-0', 'bg-neutral-500/75')
     modalOverlay.setAttribute('aria-hidden', 'true')
 
     // Crear el contenedor principal del modal
@@ -94,7 +94,7 @@ function showModalEdit(e) {
 
     // Panel principal del modal
     const modalPanel = document.createElement('div')
-    modalPanel.classList.add('relative', 'transform', 'overflow-hidden', 'rounded-lg', 'bg-white', 'text-left', 'shadow-xl', 'transition-all', 'sm:my-8', 'sm:w-full', 'sm:max-w-lg')
+    modalPanel.classList.add('relative', 'transform', 'overflow-hidden', 'rounded-lg', 'bg-white', 'text-left', 'shadow-xl', 'sm:my-8', 'sm:w-full', 'sm:max-w-lg')
 
     // Contenido del modal
     const modalContent = document.createElement('div')
@@ -110,39 +110,39 @@ function showModalEdit(e) {
     textContainer.setAttribute('id', 'textContainer')
 
     const modalTitle = document.createElement('h3')
-    modalTitle.classList.add('text-base', 'font-semibold', 'text-gray-900', 'dark:text-gray-300' )
+    modalTitle.classList.add('text-base', 'font-semibold', 'text-neutral-900', 'dark:text-neutral-300' )
     modalTitle.id = 'modal-title'
     modalTitle.textContent = 'Are you sure you want to delete this color?'
 
     const modalDescription = document.createElement('div')
-    modalDescription.classList.add('my-2', 'flex', 'gap-4', 'dark:text-gray-300')
+    modalDescription.classList.add('my-2', 'flex', 'gap-4', 'dark:text-neutral-300')
 
     const descriptionText = document.createElement('p')
-    descriptionText.classList.add('text-sm', 'text-gray-500', 'dark:text-gray-300')
+    descriptionText.classList.add('text-sm', 'text-neutral-500', 'dark:text-neutral-300')
     descriptionText.textContent = 'Write HEX Code to change your color'
 
     const inputEditCode = document.createElement('input')
-    inputEditCode.classList.add('w-full', 'border', 'border-gray-300', 'rounded-md', 'px-3', 'py-2', 'dark:text-neutral-300', 'border-neutral-300', 'dark:border-neutral-800', 'focus:outline-none', 'focus:ring-1', 'focus:ring-neutral-500')
+    inputEditCode.classList.add('w-full', 'border', 'border-neutral-300', 'rounded-md', 'px-3', 'py-2', 'dark:text-neutral-300', 'border-neutral-300', 'dark:border-neutral-800', 'focus:outline-none', 'focus:ring-1', 'focus:ring-neutral-500')
     inputEditCode.setAttribute('placeholder', 'Change Color Code')
     inputEditCode.setAttribute('type', 'text')
     inputEditCode.setAttribute('id', 'modal-inputCode')
 
     const inputEditName = document.createElement('input')
-    inputEditName.classList.add('w-full', 'border', 'border-gray-300', 'rounded-md', 'px-3', 'py-2', 'dark:text-neutral-300', 'border-neutral-300', 'dark:border-neutral-800', 'focus:outline-none', 'focus:ring-1', 'focus:ring-neutral-500')
+    inputEditName.classList.add('w-full', 'border', 'border-neutral-300', 'rounded-md', 'px-3', 'py-2', 'dark:text-neutral-300', 'border-neutral-300', 'dark:border-neutral-800', 'focus:outline-none', 'focus:ring-1', 'focus:ring-neutral-500')
     inputEditName.setAttribute('placeholder', 'Change Color Name')
     inputEditName.setAttribute('type', 'text')
     inputEditName.setAttribute('id', 'modal-inputName')
     
     // Botones del modal
     const buttonContainer = document.createElement('div')
-    buttonContainer.classList.add('bg-gray-50', 'dark:bg-neutral-900', 'px-4', 'py-3', 'sm:flex', 'sm:flex-row-reverse', 'sm:px-6')
+    buttonContainer.classList.add('bg-neutral-50', 'dark:bg-neutral-900', 'px-4', 'py-3', 'sm:flex', 'sm:flex-row-reverse', 'sm:px-6')
 
     const buttonEditModal = document.createElement('button')
-    buttonEditModal.classList.add('modal-buttonEditModal','mt-2', 'text-orange-400', 'hover:text-white', 'border', 'border-orange-400', 'hover:bg-orange-500', 'focus:ring-4', 'focus:outline-none', 'focus:ring-orange-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'dark:border-orange-300', 'dark:text-orange-300', 'dark:hover:text-white', 'dark:hover:bg-orange-400', 'dark:focus:ring-orange-900', 'cursor-pointer')
+    buttonEditModal.classList.add('modal-buttonEditModal','mt-2', 'text-orange-400', 'hover:text-white', 'border', 'border-orange-400', 'hover:bg-orange-500', 'focus:ring-4', 'focus:outline-none', 'focus:ring-orange-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'dark:border-orange-300', 'dark:text-orange-300', 'dark:hover:text-white', 'dark:hover:bg-orange-400', 'dark:focus:ring-orange-900', 'cursor-pointer', 'transition-colors', 'duration-300', 'ease-in-out')
     buttonEditModal.textContent = 'Edit'
 
     const buttonCancel = document.createElement('button')
-    buttonCancel.classList.add('modal-buttonCancel','mt-2', 'text-gray-900', 'hover:text-white', 'border', 'border-gray-800', 'hover:bg-gray-900', 'focus:ring-4', 'focus:outline-none', 'focus:ring-gray-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'dark:border-gray-600', 'dark:text-gray-400', 'dark:hover:text-white', 'dark:hover:bg-gray-600', 'dark:focus:ring-gray-800', 'transition', 'cursor-pointer')
+    buttonCancel.classList.add('modal-buttonCancel','mt-2', 'text-neutral-900', 'hover:text-white', 'border', 'border-neutral-800', 'hover:bg-neutral-900', 'focus:ring-4', 'focus:outline-none', 'focus:ring-neutral-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'dark:border-neutral-600', 'dark:text-neutral-400', 'dark:hover:text-white', 'dark:hover:bg-neutral-600', 'dark:focus:ring-neutral-800', 'cursor-pointer', 'transition-colors', 'duration-300', 'ease-in-out')
     buttonCancel.textContent = 'Cancel'
 
     // Construir la estructura del modal
@@ -200,7 +200,7 @@ function showModalDelete(e){
 
   // Crear el overlay del modal
   const modalOverlay = document.createElement('div')
-  modalOverlay.classList.add('fixed', 'inset-0', 'bg-gray-500/75', 'transition-opacity')
+  modalOverlay.classList.add('fixed', 'inset-0', 'bg-neutral-500/75')
   modalOverlay.setAttribute('aria-hidden', 'true')
 
   // Crear el contenedor principal del modal
@@ -214,7 +214,7 @@ function showModalDelete(e){
 
   // Panel principal del modal
   const modalPanel = document.createElement('div')
-  modalPanel.classList.add('relative', 'transform', 'overflow-hidden', 'rounded-lg', 'bg-white', 'text-left', 'shadow-xl', 'transition-all', 'sm:my-8', 'sm:w-full', 'sm:max-w-lg')
+  modalPanel.classList.add('relative', 'transform', 'overflow-hidden', 'rounded-lg', 'bg-white', 'text-left', 'shadow-xl', 'sm:my-8', 'sm:w-full', 'sm:max-w-lg')
 
   // Contenido del modal
   const modalContent = document.createElement('div')
@@ -223,7 +223,7 @@ function showModalDelete(e){
   const contentWrapper = document.createElement('div')
   contentWrapper.classList.add('flex', 'flex-col', 'items-center', 'text-center')
   const svgIcon = document.createElement('svg')
-  svgIcon.classList.add('w-16', 'h-16', 'text-red-500', 'dark:text-red-500')
+  svgIcon.classList.add('w-16', 'h-8', 'text-red-500', 'dark:text-red-500')
   svgIcon.setAttribute('src', 'path_to_your_svg_file')
   svgIcon.setAttribute('alt', 'Your SVG Icon')
 
@@ -233,20 +233,20 @@ function showModalDelete(e){
   textContainer.setAttribute('id', 'textContainer')
 
   const modalTitle = document.createElement('span')
-  modalTitle.classList.add('text-2xl', 'font-semibold', 'text-gray-900', 'dark:text-gray-300' )
+  modalTitle.classList.add('text-xl', 'font-semibold', 'text-neutral-900', 'dark:text-neutral-300' )
   modalTitle.id = 'modal-title'
   modalTitle.textContent = '¿Estás seguro de que deseas eliminar este color?'
 
   // Botones del modal
   const buttonContainer = document.createElement('div')
-  buttonContainer.classList.add('bg-gray-50', 'dark:bg-neutral-900', 'px-4', 'py-3', 'flex', 'flex-row', 'justify-center','sm:px-6')
+  buttonContainer.classList.add('bg-neutral-50', 'dark:bg-neutral-900', 'px-4', 'py-3', 'flex', 'flex-row', 'justify-center','sm:px-6')
 
   const buttonDeleteModal = document.createElement('button')
-  buttonDeleteModal.classList.add('modal-buttonDeleteModal','mt-2', 'text-white', 'bg-red-600', 'hover:bg-red-700', 'focus:ring-4', 'focus:outline-none', 'focus:ring-red-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'transition', 'cursor-pointer')
+  buttonDeleteModal.classList.add('modal-buttonDeleteModal','mt-2', 'text-white', 'bg-red-600', 'hover:bg-red-700', 'focus:ring-4', 'focus:outline-none', 'focus:ring-red-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'cursor-pointer', 'transition-colors', 'duration-300', 'ease-in-out')
   buttonDeleteModal.textContent = 'Eliminar'
 
   const buttonCancel = document.createElement('button')
-  buttonCancel.classList.add('modal-buttonCancel','mt-2', 'text-gray-900', 'hover:text-white', 'border', 'border-gray-800', 'hover:bg-gray-900', 'focus:ring-4', 'focus:outline-none', 'focus:ring-gray-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'dark:border-gray-600', 'dark:text-gray-400', 'dark:hover:text-white', 'dark:hover:bg-gray-600', 'dark:focus:ring-gray-800', 'transition', 'cursor-pointer')
+  buttonCancel.classList.add('modal-buttonCancel','mt-2', 'text-neutral-900', 'hover:text-white', 'border', 'border-neutral-800', 'hover:bg-neutral-900', 'focus:ring-4', 'focus:outline-none', 'focus:ring-neutral-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'dark:border-neutral-600', 'dark:text-neutral-400', 'dark:hover:text-white', 'dark:hover:bg-neutral-600', 'dark:focus:ring-neutral-800', 'cursor-pointer', 'transition-colors', 'duration-300', 'ease-in-out')
   buttonCancel.textContent = 'Cancelar'
 
   // Construir la estructura del modal
@@ -349,38 +349,38 @@ function editColor(e, inputEditCode, inputEditName) {
 function renderColorCard(colorObj) {
   
   const card = document.createElement('div')
-  card.classList.add('flex', 'flex-col', 'border', 'border-gray-300', 'dark:border-gray-800', 'items-center', 'gap-4', 'p-6', 'rounded-lg', 'shadow-lg', 'transition', 'duration-300', 'hover:shadow-2xl', 'bg-white', 'dark:bg-gray-900')
+  card.classList.add('flex', 'flex-col', 'border', 'border-neutral-300', 'dark:border-neutral-800', 'items-center', 'gap-4', 'p-6', 'rounded-lg', 'shadow-lg', 'hover:shadow-2xl', 'bg-white', 'dark:bg-neutral-900', 'transition-colors', 'duration-300', 'ease-in-out')
 
   const colorBlock = document.createElement('div')
-  colorBlock.classList.add('w-full', 'h-32', 'rounded-lg', 'transition', 'duration-300', 'transform', 'hover:scale-105', 'shadow-md')
+  colorBlock.classList.add('w-full', 'h-32', 'rounded-lg', 'transform', 'hover:scale-105', 'shadow-md', 'transition-transform', 'duration-300', 'ease-in-out')
   colorBlock.style.backgroundColor = colorObj.code
 
   const colorInfoContainer = document.createElement('div')
   colorInfoContainer.classList.add('flex', 'flex-col', 'gap-1', 'text-center')
 
   const colorNameElem = document.createElement('p')
-  colorNameElem.classList.add('text-2xl', 'font-bold', 'text-gray-800', 'dark:text-gray-200', 'truncate')
+  colorNameElem.classList.add('text-2xl', 'font-bold', 'text-neutral-800', 'dark:text-neutral-200', 'truncate', 'transition-colors', 'duration-300', 'ease-in-out')
   colorNameElem.textContent = colorObj.name
 
   const colorCodeElem = document.createElement('p')
-  colorCodeElem.classList.add('text-lg', 'text-gray-600', 'dark:text-gray-400', 'italic')
+  colorCodeElem.classList.add('text-lg', 'text-neutral-600', 'dark:text-neutral-400', 'italic', 'transition-colors', 'duration-300', 'ease-in-out')
   colorCodeElem.textContent = colorObj.code
 
   const buttonsContainer = document.createElement('div')
   buttonsContainer.classList.add('flex', 'flex-col', 'w-full', 'gap-2')
 
   const buttonCopy = document.createElement('button')
-  buttonCopy.classList.add('buttonCopy', 'border-1', 'border', 'border-gray-600','hover:bg-gray-800', 'focus:outline-none', 'font-medium', 'rounded-lg', 'text-lg', 'py-3', 'transition', 'duration-200', 'text-gray-300', 'cursor-pointer')
+  buttonCopy.classList.add('buttonCopy', 'bg-white','text-neutral-500' ,'border-1', 'border', 'border-neutral-600','hover:bg-neutral-200', 'hover:text-neutral-800', 'focus:outline-none', 'font-medium', 'rounded-lg', 'text-lg', 'py-3', 'text-neutral-300', 'cursor-pointer', 'dark:bg-neutral-800', 'dark:text-white', 'dark:hover:bg-neutral-900', 'dark:hover:text-white', 'transition-colors', 'duration-300', 'ease-in-out')
   buttonCopy.setAttribute('data-color', colorObj.code)
   buttonCopy.textContent = 'Copiar'
 
   const buttonEdit = document.createElement('button')
-  buttonEdit.classList.add('buttonEdit', 'bg-orange-500', 'hover:bg-orange-600', 'focus:outline-none', 'font-medium', 'rounded-lg', 'text-lg', 'py-3', 'transition', 'duration-200', 'text-white', 'cursor-pointer')
+  buttonEdit.classList.add('buttonEdit', 'bg-orange-500', 'hover:bg-orange-600', 'focus:outline-none', 'font-medium', 'rounded-lg', 'text-lg', 'py-3', 'text-white', 'cursor-pointer', 'transition-colors', 'duration-300', 'ease-in-out')
   buttonEdit.setAttribute('data-id', colorObj.id)
   buttonEdit.textContent = 'Editar'
 
   const buttonDelete = document.createElement('button')
-  buttonDelete.classList.add('buttonDelete', 'bg-red-500', 'hover:bg-red-600', 'focus:outline-none', 'font-medium', 'rounded-lg', 'text-lg', 'py-3', 'transition', 'duration-200', 'text-white', 'cursor-pointer')
+  buttonDelete.classList.add('buttonDelete', 'bg-red-500', 'hover:bg-red-600', 'focus:outline-none', 'font-medium', 'rounded-lg', 'text-lg', 'py-3', 'text-white', 'cursor-pointer', 'transition-colors', 'duration-300', 'ease-in-out')
   buttonDelete.setAttribute('data-id', colorObj.id)
   buttonDelete.textContent = 'Eliminar'
 

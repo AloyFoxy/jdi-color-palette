@@ -10,16 +10,16 @@
   />
   <link rel="stylesheet" href="./src/style.css">
 </head>
-<body class="bg-neutral-100 dark:bg-neutral-950/95 min-h-screen flex flex-col">
+<body class="bg-neutral-100 dark:bg-neutral-950/95 min-h-screen flex flex-col transition-colors duration-300 ease-in-out">
 
   <!-- HEADER/NAV -->
-  <nav class="bg-white shadow-md dark:bg-neutral-950/70 transition-discrete">
+  <nav class="bg-white shadow-md dark:bg-neutral-950/70 transition-colors duration-300 ease-in-out">
     <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="text-xl font-medium text-neutral-800 dark:text-white">
+      <div class="text-xl font-medium text-neutral-800 dark:text-white transition-colors duration-300 ease-in-out">
         <span class="font-black bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">JDI</span>
         <span class="ml-1">Color Palette App</span>
       </div>
-      <button type="button" id="toggle-darkmode" class="block font-medium text-neutral-800 rounded-md hover:bg-neutral-200 focus:outline-hidden dark:text-yellow-500 dark:hover:bg-neutral-800 cursor-pointer transition">
+      <button type="button" id="toggle-darkmode" class="block font-medium text-neutral-800 rounded-md hover:bg-neutral-200 focus:outline-hidden dark:text-yellow-500 dark:hover:bg-neutral-800 cursor-pointer transition-colors duration-300 ease-in-out">
         <span class="group inline-flex shrink-0 justify-center items-center size-15">
           <svg class="shrink-0 size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
@@ -35,14 +35,14 @@
     <div class="flex flex-col lg:flex-row ">
 
       <!-- Sección para agregar colores a la paleta -->
-      <section class="bg-white dark:bg-neutral-950/70 shadow-md p-6 rounded-md w-full flex-1">
-        <h2 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-300 mb-4">Agregar Color</h2>
+      <section class="bg-white dark:bg-neutral-950/70 shadow-md p-6 rounded-md w-full flex-1 transition-colors duration-300 ease-in-out">
+        <h2 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-300 mb-4 transition-colors duration-300 ease-in-out">Agregar Color</h2>
         <form id="add-color-form" class="space-y-4">
           <div>
             <input
               type="text"
               id="color-name"
-              class="w-full border dark:text-neutral-300 border-neutral-300 dark:border-neutral-800 rounded-md px-3 py-4 text-xl focus:outline-none focus:ring-1 focus:ring-neutral-500"
+              class="w-full border dark:text-neutral-300 border-neutral-300 dark:border-neutral-800 rounded-md px-3 py-4 text-xl focus:outline-none focus:ring-1 focus:ring-neutral-500 transition-colors duration-300 ease-in-out"
               placeholder="Color Name"
             />
           </div>
@@ -50,13 +50,13 @@
             <input
               type="text"
               id="color-code"
-              class="w-full border dark:text-neutral-300 border-neutral-300 dark:border-neutral-800 rounded-md px-3 py-4 text-xl focus:outline-none focus:ring-1 focus:ring-neutral-500"
+              class="w-full border dark:text-neutral-300 border-neutral-300 dark:border-neutral-800 rounded-md px-3 py-4 text-xl focus:outline-none focus:ring-1 focus:ring-neutral-500 transition-colors duration-300 ease-in-out"
               placeholder="HEX Code"
             />
           </div>
           <button
             type="submit"
-            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-md transition cursor-pointer"
+            class="w-full bg-white text-neutral-500 border-1 border-neutral-600 hover:bg-neutral-200 hover:text-neutral-800 focus:outline-none font-medium rounded-lg text-lg py-3 cursor-pointer dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-900 dark:hover:text-white transition-colors duration-300 ease-in-out"
             id="submit"
           >
             Agregar a la Paleta
@@ -64,8 +64,8 @@
         </form>
       </section>
       <!-- Sección para la lista de colores generados -->
-      <section class="bg-white dark:bg-neutral-950/70 shadow-md rounded-md w-full flex-1/2 py-4">
-        <h2 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-300 mb-4">Tu Paleta de Colores</h2>
+      <section class="bg-white dark:bg-neutral-950/70 shadow-md rounded-md w-full flex-1/2 py-4 transition-colors duration-300 ease-in-out">
+        <h2 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-300 mb-4 transition-colors duration-300 ease-in-out">Tu Paleta de Colores</h2>
         <div id="colors-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- Renderizar tarjetas con colores--> 
         </div>
@@ -74,7 +74,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-white dark:bg-neutral-950/70 m-auto py-2">
+  <footer class="bg-white dark:bg-neutral-950/70 m-auto py-2 transition-colors duration-300 ease-in-out">
     <div class="flex gap-2 text-center">
       <p class="text-sm text-neutral-500">Made with 💜 by AloyFoxy</p>
       <p class="text-sm text-neutral-500">|</p>
