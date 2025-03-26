@@ -193,7 +193,7 @@ function showModalDelete(e){
   const modalWrapper = document.getElementById('modalWrapper')
   // Crear el modal principal
   const modal = document.createElement('div')
-  modal.classList.add('relative', 'z-10', 'rounded-lg', 'overflow-hidden', 'shadow-lg')
+  modal.classList.add('relative', 'z-10', 'rounded-lg', 'overflow-hidden', 'shadow-md')
   modal.setAttribute('aria-labelledby', 'modal-title')
   modal.setAttribute('role', 'dialog')
   modal.setAttribute('aria-modal', 'true')
@@ -349,7 +349,7 @@ function editColor(e, inputEditCode, inputEditName) {
 function renderColorCard(colorObj) {
   
   const card = document.createElement('div')
-  card.classList.add('flex', 'flex-col', 'border', 'border-neutral-300', 'dark:border-neutral-800', 'items-center', 'gap-4', 'p-6', 'rounded-lg', 'shadow-lg', 'hover:shadow-2xl', 'bg-white', 'dark:bg-neutral-900', 'transition-colors', 'duration-300', 'ease-in-out')
+  card.classList.add('flex', 'flex-col', 'border', 'border-neutral-300', 'dark:border-neutral-800', 'items-center', 'gap-4', 'p-6', 'rounded-lg', 'hover:shadow-md', 'bg-white', 'dark:bg-neutral-900', 'transition-all', 'duration-300', 'ease-in-out')
 
   const colorBlock = document.createElement('div')
   colorBlock.classList.add('w-full', 'h-32', 'rounded-lg', 'transform', 'hover:scale-105', 'shadow-md', 'transition-transform', 'duration-300', 'ease-in-out')

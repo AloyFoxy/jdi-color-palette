@@ -10,17 +10,17 @@
   />
   <link rel="stylesheet" href="./src/style.css">
 </head>
-<body class="bg-neutral-100 dark:bg-neutral-950/95 min-h-screen flex flex-col transition-colors duration-300 ease-in-out">
+<body class="flex flex-col min-h-screen transition-colors duration-300 ease-in-out bg-neutral-100 dark:bg-neutral-950/95">
 
   <!-- HEADER/NAV -->
-  <nav class="bg-white shadow-md dark:bg-neutral-950/70 transition-colors duration-300 ease-in-out">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="text-xl font-medium text-neutral-800 dark:text-white transition-colors duration-300 ease-in-out">
-        <span class="font-black bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">JDI</span>
+  <nav class="transition-colors duration-300 ease-in-out bg-white shadow-md dark:bg-neutral-950/70">
+    <div class="flex items-center justify-between px-4 py-4 mx-auto max-w-7xl">
+      <div class="text-xl font-medium transition-colors duration-300 ease-in-out text-neutral-800 dark:text-white">
+        <span class="font-black text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text">JDI</span>
         <span class="ml-1">Color Palette App</span>
       </div>
-      <button type="button" id="toggle-darkmode" class="block font-medium text-neutral-800 rounded-md hover:bg-neutral-200 focus:outline-hidden dark:text-yellow-500 dark:hover:bg-neutral-800 cursor-pointer transition-colors duration-300 ease-in-out">
-        <span class="group inline-flex shrink-0 justify-center items-center size-15">
+      <button type="button" id="toggle-darkmode" class="block font-medium transition-colors duration-300 ease-in-out rounded-md cursor-pointer text-neutral-800 hover:bg-neutral-200 focus:outline-hidden dark:text-yellow-500 dark:hover:bg-neutral-800">
+        <span class="inline-flex items-center justify-center group shrink-0 size-15">
           <svg class="shrink-0 size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
           </svg>
@@ -30,19 +30,19 @@
   </nav>
 
   <!-- MAIN CONTENT -->
-  <main class="max-w-7xl mx-auto w-full p-4">
+  <main class="w-full p-4 mx-auto my-6 transition-colors duration-300 ease-in-out bg-white rounded-lg dark:bg-neutral-950 max-w-7xl">
     <div id="modalWrapper"></div>
     <div class="flex flex-col lg:flex-row ">
 
       <!-- Sección para agregar colores a la paleta -->
-      <section class="bg-white dark:bg-neutral-950/70 shadow-md p-6 rounded-md w-full flex-1 transition-colors duration-300 ease-in-out">
-        <h2 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-300 mb-4 transition-colors duration-300 ease-in-out">Agregar Color</h2>
-        <form id="add-color-form" class="space-y-4">
+      <section class="flex-1 w-full p-6 mr-6 bg-transparent">
+        <h2 class="mb-4 text-2xl font-semibold transition-colors duration-300 ease-in-out text-neutral-800 dark:text-neutral-300">Agregar Color</h2>
+        <form id="add-color-form" class="space-y-4 transi">
           <div>
             <input
               type="text"
               id="color-name"
-              class="w-full border dark:text-neutral-300 border-neutral-300 dark:border-neutral-800 rounded-md px-3 py-4 text-xl focus:outline-none focus:ring-1 focus:ring-neutral-500 transition-colors duration-300 ease-in-out"
+              class="w-full px-3 py-4 text-xl transition-colors duration-300 ease-in-out border rounded-md dark:text-neutral-300 border-neutral-300 dark:border-neutral-800 focus:outline-none focus:ring-1 focus:ring-neutral-500"
               placeholder="Color Name"
             />
           </div>
@@ -50,13 +50,13 @@
             <input
               type="text"
               id="color-code"
-              class="w-full border dark:text-neutral-300 border-neutral-300 dark:border-neutral-800 rounded-md px-3 py-4 text-xl focus:outline-none focus:ring-1 focus:ring-neutral-500 transition-colors duration-300 ease-in-out"
+              class="w-full px-3 py-4 text-xl transition-colors duration-300 ease-in-out border rounded-md dark:text-neutral-300 border-neutral-300 dark:border-neutral-800 focus:outline-none focus:ring-1 focus:ring-neutral-500"
               placeholder="HEX Code"
             />
           </div>
           <button
             type="submit"
-            class="w-full bg-white text-neutral-500 border-1 border-neutral-600 hover:bg-neutral-200 hover:text-neutral-800 focus:outline-none font-medium rounded-lg text-lg py-3 cursor-pointer dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-900 dark:hover:text-white transition-colors duration-300 ease-in-out"
+            class="w-full py-3 text-lg font-medium transition-colors duration-300 ease-in-out bg-white rounded-lg cursor-pointer text-neutral-500 border-1 border-neutral-600 hover:bg-neutral-200 hover:text-neutral-800 focus:outline-none dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-900 dark:hover:text-white"
             id="submit"
           >
             Agregar a la Paleta
@@ -64,9 +64,9 @@
         </form>
       </section>
       <!-- Sección para la lista de colores generados -->
-      <section class="bg-white dark:bg-neutral-950/70 shadow-md rounded-md w-full flex-1/2 py-4 transition-colors duration-300 ease-in-out">
-        <h2 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-300 mb-4 transition-colors duration-300 ease-in-out">Tu Paleta de Colores</h2>
-        <div id="colors-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <section class="w-full py-4 transition-colors duration-300 ease-in-out bg-transparent flex-1/2">
+        <h2 class="mb-4 text-2xl font-semibold transition-colors duration-300 ease-in-out text-neutral-800 dark:text-neutral-300">Tu Paleta de Colores</h2>
+        <div id="colors-container" class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <!-- Renderizar tarjetas con colores--> 
         </div>
       </section>
@@ -74,11 +74,11 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-white dark:bg-neutral-950/70 m-auto py-2 transition-colors duration-300 ease-in-out">
-    <div class="flex gap-2 text-center">
-      <p class="text-sm text-neutral-500">Made with 💜 by AloyFoxy</p>
-      <p class="text-sm text-neutral-500">|</p>
-      <p class="text-sm text-neutral-500"> Color Palette App © 2025</p>
+  <footer class="flex justify-center w-full py-12 mx-auto transition-all duration-300 ease-in-out border-t-1 border-neutral-300 dark:border-neutral-600">
+    <div class="flex gap-2 text-center ">
+      <p class="text-sm lg:text-lg text-neutral-500">Made with 💜 by AloyFoxy</p>
+      <p class="text-sm lg:text-lg text-neutral-500">|</p>
+      <p class="text-sm lg:text-lg text-neutral-500"> Color Palette App © 2025</p>
     </div>
   </footer>
   
